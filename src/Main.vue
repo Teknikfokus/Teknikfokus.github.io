@@ -40,7 +40,7 @@
         </div>
     </div>
     <parallax sectionClass="parallax-image" :sectionHeight="parallaxImageHeight" breakpoint="(min-width: 0px)" :speedFactor="0.2" direction="down">
-        <img :src="parallaxBackground" />
+        <img class="slideshow" />
     </parallax>
     <router-view class="view"/>
     <Footer></Footer>
@@ -82,7 +82,7 @@ export default {
   },
   computed: {
     parallaxBackground() {
-        let name ="massa2020blur.jpg"
+        let name ="teknikfokusbluetint.png"
         var images = require.context('@/assets/images/', false, /(\.png)|(\.jpg)|(\.jpeg)$/)
         return images('./' + name);
     },
@@ -176,6 +176,39 @@ a:hover {
 
 .view {
     min-height: 40vh;
+}
+
+.slideshow {
+    animation: fade1 30s infinite;
+    animation-timing-function: ease;
+}
+
+
+@keyframes fade1{
+    0% {
+        background: url("./assets/images/img-0.png"), url("./assets/images/img-1.png");
+    }
+    14% {
+        background: url("./assets/images/img-1.png"), url("./assets/images/img-2.png");
+    }
+    28% {
+        background: url("./assets/images/img-2.png"), url("./assets/images/img-3.png");
+    }
+    42% {
+        background: url("./assets/images/img-3.png"), url("./assets/images/img-4.png");
+    }
+    57% {
+        background: url("./assets/images/img-4.png"), url("./assets/images/img-5.png");
+    }
+    71% {
+        background: url("./assets/images/img-5.png"), url("./assets/images/img-6.png");
+    }
+    85% {
+        background: url("./assets/images/img-6.png"), url("./assets/images/img-0.png");
+    }
+    100% {
+        background: url("./assets/images/img-0.png"), url("./assets/images/img-1.png");
+    }
 }
 
 @media (min-width: 576px) { 
